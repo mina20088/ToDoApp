@@ -12,10 +12,12 @@ A modern, responsive Todo application built with Vue 3, Vite, and FontAwesome ic
 ## ✨ Features
 
 - **Modern Vue 3 Composition API** - Built with the latest Vue.js features
+- **Component-based Architecture** - Reusable BaseCard and BaseInput components
 - **Responsive Design** - Optimized for both desktop and mobile devices
-- **Beautiful UI** - Clean, modern interface with gradient styling
+- **Beautiful UI** - Clean, modern interface with gradient header styling
 - **Icon Integration** - FontAwesome icons for enhanced user experience
-- **State Management** - Pinia for efficient state management
+- **Flexible Layout System** - Slot-based components for maximum customization
+- **State Management Ready** - Pinia integration for scalable state handling
 - **Routing Ready** - Vue Router integration for scalable navigation
 - **Development Tools** - Hot reload, ESLint, and Prettier for optimal DX
 
@@ -32,11 +34,12 @@ ToDoApp/
 │   │   └── fonts/
 │   │       └── Montserrat/        # Montserrat font family
 │   ├── components/
-│   │   └── BaseCard.vue           # Reusable card component
+│   │   ├── BaseCard.vue           # Reusable card component with slot system
+│   │   └── BaseInput.vue          # Reusable input component
 │   ├── router/
 │   │   └── index.js               # Vue Router configuration
 │   ├── stores/                    # Pinia stores directory
-│   ├── App.vue                    # Root component
+│   ├── App.vue                    # Root component with todo layout
 │   └── main.js                    # Application entry point
 ├── eslint.config.js               # ESLint configuration
 ├── jsconfig.json                  # JavaScript configuration
@@ -111,17 +114,33 @@ ToDoApp/
 
 ### BaseCard Component
 
-The main UI component featuring:
+A flexible, reusable card component featuring:
 
-- **Gradient Header** - Beautiful blue gradient background
-- **Icon Integration** - FontAwesome check circle icon
-- **Responsive Design** - Mobile-first approach
-- **Slot System** - Flexible content insertion
+- **Slot-based Architecture** - Header and content slots for maximum flexibility
+- **Responsive Design** - Mobile-first approach with breakpoint optimization
+- **Modern Styling** - Clean design with rounded corners and proper spacing
+- **Modular Structure** - Separation of concerns between header and body content
 
 ```vue
 <BaseCard>
-  <!-- Your todo content goes here -->
+  <template #header>
+    <!-- Header content (optional) -->
+  </template>
+  <!-- Main content goes here -->
 </BaseCard>
+```
+
+### BaseInput Component
+
+A styled input component with:
+
+- **Dynamic Props** - Type and placeholder customization
+- **Focus Styling** - Custom focus states with accent colors
+- **Consistent Design** - Matches the overall app aesthetic
+- **Accessibility** - Proper input labeling and states
+
+```vue
+<BaseInput type="text" placeholder="Enter your text..." />
 ```
 
 ## 🔧 Configuration

@@ -1,62 +1,33 @@
 <template>
   <section class="card">
-    <header class="card-header">
-      <div class="card-header-title">
-        <FontAwesomeIcon :icon="faCheckCircle" class="card-check-circle" />
-        <p>Todo App</p>
-      </div>
-      <p class="card-header-slogn">Stay organized and get things done</p>
-    </header>
-    <slot></slot>
+    <slot name="header"></slot>
+    <section class="card_body">
+      <slot></slot>
+    </section>
   </section>
 </template>
 
-<script setup>
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-</script>
+<script setup></script>
 
 <style scoped>
 .card {
   display: flex;
-  height: 900px;
   background-color: white;
   width: 600px;
   border-radius: 2rem;
   flex-direction: column;
 }
 
-.card-header {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
-  background-image: linear-gradient(to right, #0263f3, #0070f8, #007dfb, #0089fe, #0b95ff);
-  gap: 12px;
+.card_body {
+  padding: 0 2rem;
 }
-
-.card-header-title{
-  display: flex;
-  align-items: center;
-  font-size: 2.5em;
-  color: white;
-  gap: 2px;
-
-}
-
-.card-header-slogn{
-  color: white;
-  text-align: center;
-}
-
-
-
 
 @media screen and (max-width: 576px) {
   .card {
+    border-radius: 0;
+    width: 100%;
+  }
+  .card-header {
     border-radius: 0;
   }
 }
