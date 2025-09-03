@@ -3,6 +3,7 @@ import BaseCard from '@/components/BaseCard.vue'
 import BaseInput from './components/BaseInput.vue'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import BaseButton from './components/BaseButton.vue'
 </script>
 <template>
   <main>
@@ -17,7 +18,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
         </header>
       </template>
       <section class="card-body-add-todo">
-          <BaseInput type="text" placeholder="What needs to be done?" class="to-do-add-input-feild"/>
+          <BaseInput type="text" placeholder="What needs to be done?" class="card-body-to-do-add-input-feild"/>
+          <BaseButton title=" + Add Task" class="card-body-to-do-add-button"/>
       </section>
     </BaseCard>
   </main>
@@ -53,9 +55,13 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
   flex-direction: row;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  gap: 4px;
 }
-.to-do-add-input-feild{
+.card-body-to-do-add-input-feild{
   flex-basis: 80%;
+}
+.card-body-to-do-add-button{
+  flex-basis: 20%;
 }
 @media screen and (max-width: 576px) {
   .card-header {
