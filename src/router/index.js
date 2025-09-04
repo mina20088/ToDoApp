@@ -1,5 +1,5 @@
 import ActiveToDoView from '@/views/ActiveToDoView.vue'
-import AllToDOView from '@/views/AllToDOView.vue'
+import AllToDOView from '@/views/AllToDoView.vue'
 import CompletedToDoView from '@/views/CompletedToDoView.vue'
 import TodoView from '@/views/TodoView.vue'
 import { createRouter, createWebHistory } from 'vue-router'

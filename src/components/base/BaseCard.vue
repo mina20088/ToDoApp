@@ -16,7 +16,6 @@
         width: 600px;
         border-radius: 2rem;
         flex-direction: column;
-        gap: 3rem;
     }
 
     .card_body {

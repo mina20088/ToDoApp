@@ -39,6 +39,8 @@
         text-align: center;
     }
 
+
+
     @media screen and (max-width: 576px) {
         .card-header {
             border-radius: 0;
