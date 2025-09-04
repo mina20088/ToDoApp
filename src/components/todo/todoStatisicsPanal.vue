@@ -33,7 +33,6 @@
         border-radius: 2rem;
         display: flex;
         justify-content: space-between;
-
     }
     .card-statisice-panal div {
         display: flex;
@@ -44,7 +43,6 @@
     .card-statisice-panal div > h2 {
         font-size: 1.5em;
         margin: 0;
-        color: #00a6f4
+        color: #00a6f4;
     }
-
 </style>

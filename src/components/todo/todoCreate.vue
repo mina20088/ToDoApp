@@ -6,15 +6,26 @@
             class="card-body-to-do-add-input-feild"
             v-model="todo"
         />
-        <BaseButton title=" + Add Task" class="card-body-to-do-add-button" />
+        <BaseButton @click="addTodo" title=" + Add Task" class="card-body-to-do-add-button" />
     </section>
 </template>
 
 <script setup>
     import BaseInput from '@/components/base/BaseInput.vue'
+
     import BaseButton from '@/components/base/BaseButton.vue'
+
     import { ref } from 'vue'
+
+    import useToDosStore from '@/stores/Todo'
+
     const todo = ref('todo')
+
+    const store = useToDosStore()
+
+    function addTodo() {
+        return store.addTodo(todo.value)
+    }
 </script>
 
 <style scoped>

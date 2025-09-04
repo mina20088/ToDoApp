@@ -4,7 +4,7 @@
 
 <script setup>
     const props = defineProps(['type', 'placeholder'])
-    const model = defineModel();
+    const model = defineModel()
 </script>
 
 <style scoped>

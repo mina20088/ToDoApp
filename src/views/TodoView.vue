@@ -14,7 +14,7 @@
         </div>
         <todoStatisicsPanal />
         <div>
-            <ProgressBar :progress="30"/>
+            <ProgressBar :progress="30" />
         </div>
         <section>
             <RouterView />
@@ -48,7 +48,7 @@
         background-image: linear-gradient(to right, #0075cd, #007cc8, #0081c2, #0086ba, #008ab1);
         color: white;
     }
-        hr {
+    hr {
         border: none;
         border-top: 2px solid #3498db;
     }

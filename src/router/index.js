@@ -13,19 +13,18 @@ const router = createRouter({
             children: [
                 {
                     path: '/',
-                    component: AllToDOView
+                    component: AllToDOView,
                 },
                 {
                     path: 'active',
                     component: ActiveToDoView,
-
                 },
                 {
                     path: 'completed',
-                    component : CompletedToDoView
-                }
-            ]
-        }
+                    component: CompletedToDoView,
+                },
+            ],
+        },
     ],
 })
 

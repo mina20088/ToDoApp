@@ -1,9 +1,8 @@
 <template>
     <div class="progress">
         <div class="bar" ref="prog">
-              <span class="progress-label">{{ props.progress }}%</span>
+            <span class="progress-label">{{ props.progress }}%</span>
         </div>
-
     </div>
 </template>
 
@@ -46,7 +45,7 @@
     }
     .progress-label {
         font-size: 12px;
-        color:white;
+        color: white;
         text-align: center;
     }
 </style>

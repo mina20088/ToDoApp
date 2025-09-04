@@ -16,13 +16,14 @@
         width: 600px;
         border-radius: 2rem;
         flex-direction: column;
+        padding-bottom: 3rem;
     }
 
     .card_body {
         display: flex;
         flex-direction: column;
         padding: 0 2rem;
-        gap:2rem
+        gap: 2rem;
     }
 
     @media screen and (max-width: 576px) {
