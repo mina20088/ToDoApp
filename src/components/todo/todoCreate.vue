@@ -42,4 +42,7 @@
     .card-body-to-do-add-button {
         flex-basis: 20%;
     }
+    button{
+          background-image: linear-gradient(to right, #0075cd, #007cc8, #0081c2, #0086ba, #008ab1);
+    }
 </style>

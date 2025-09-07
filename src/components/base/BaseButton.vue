@@ -1,5 +1,8 @@
 <template>
-    <button>{{ props.title }}</button>
+    <button v-if="title">{{ props.title }}</button>
+    <button v-else>
+        <slot/>
+    </button>
 </template>
 
 <script setup>
@@ -11,7 +14,6 @@
         background-color: transparent;
         border: none;
         border-radius: 2rem;
-        background-image: linear-gradient(to right, #0075cd, #007cc8, #0081c2, #0086ba, #008ab1);
         color: white;
     }
 </style>
