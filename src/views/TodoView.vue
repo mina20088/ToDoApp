@@ -17,7 +17,11 @@
             <ProgressBar :progress="progress" />
         </div>
         <section>
-            <RouterView />
+            <RouterView v-slot="{ Component }">
+                <transition name="fade">
+                    <component :is="Component" />
+                </transition>
+            </RouterView>
         </section>
     </BaseCard>
 </template>
@@ -29,7 +33,7 @@
     import todoStatisicsPanal from '@/components/todo/todoStatisicsPanal.vue'
     import ProgressBar from '@/components/ProgressBar.vue'
     import useToDosStore from '@/stores/Todo'
-    import { computed} from 'vue'
+    import { computed } from 'vue'
     import { storeToRefs } from 'pinia'
 
     const store = useToDosStore()
