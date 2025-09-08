@@ -19,9 +19,6 @@
         <section>
             <RouterView />
         </section>
-        <section>
-           
-        </section>
     </BaseCard>
 </template>
 

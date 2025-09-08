@@ -1,6 +1,8 @@
 <template>
     <div class="todos-wrapper">
-        <todo-card v-for="todo in paginatedTodos" :key="todo.id" :todo="todo" />
+        <transition-group  name="all" mode="out-in">
+            <todo-card v-for="todo in paginatedTodos" :key="todo.id" :todo="todo" />
+        </transition-group>
 
         <!-- Pagination Component -->
         <vue-awesome-paginate
@@ -52,4 +54,11 @@
     })
 </script>
 
-<style scoped></style>
+<style scoped>
+.all-enter-active{
+     animation: fadeInLeft 0.6s ease-out;
+}
+.all-leave-active{
+    animation: fadeOutRight 0.6s ease-out forwards;
+}
+</style>
