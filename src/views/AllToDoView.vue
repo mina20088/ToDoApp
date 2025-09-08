@@ -17,9 +17,5 @@
 </script>
 
 <style scoped>
-    .todos-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-    }
+
 </style>
