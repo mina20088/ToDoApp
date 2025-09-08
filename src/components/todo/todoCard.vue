@@ -2,15 +2,26 @@
     <div class="todo-card" :style="cardBorderStyle(todo)">
         <base-check-box @click="store.changeTodoStatus(todo)" :checked="todo.completed" />
         <div class="todo-card-content">
-            <div class="todo-card-text">
+            <div v-if="!updatable" class="todo-card-text">
                 <p :class="{ 'line-throught': todo.completed }">{{ todo.todo }}</p>
-                <span>{{ useTimeAgoIntl(todo.createdTime) }}</span>
+                <span>created: {{ useTimeAgoIntl(todo.createdTime) }}</span>
+                <span>updated: {{ useTimeAgoIntl(todo.updated_at) }}</span>
             </div>
-            <div class="todo-card-actions">
-                <BaseButton class="todo-card-button todo-card-update">
+            <div v-if="updatable" class="todo-card-edit">
+                <base-input v-model="updatableValue" class="todo-card-edit-input" />
+                <div class="todo-card-edit-actions">
+                    <base-button @click="editTodo(todo.id, updatableValue)">edit</base-button>
+                    <base-button @click="closeUpdateTodo">close</base-button>
+                </div>
+            </div>
+            <div v-if="!updatable" class="todo-card-actions">
+                <BaseButton @click="updateToDo(todo)" class="todo-card-button todo-card-update">
                     <FontAwesomeIcon :icon="faPen" />
                 </BaseButton>
-                <BaseButton @click="store.deleteTodo(todo)" class="todo-card-button todo-card-delete">
+                <BaseButton
+                    @click="store.deleteTodo(todo)"
+                    class="todo-card-button todo-card-delete"
+                >
                     <FontAwesomeIcon :icon="faTrash" />
                 </BaseButton>
             </div>
@@ -22,9 +33,15 @@
     import useToDosStore from '@/stores/Todo'
     import { useTimeAgoIntl } from '@vueuse/core'
     import BaseCheckBox from '@/components/base/BaseCheckBox.vue'
-    import BaseButton from '../base/BaseButton.vue'
+    import BaseButton from '@/components/base/BaseButton.vue'
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons'
+    import BaseInput from '@/components/base/BaseInput.vue'
+    import { ref, defineModel } from 'vue'
+
+    const updatable = ref(false)
+
+    const updatableValue = defineModel()
 
     defineProps(['todo'])
 
@@ -38,6 +55,22 @@
     }
 
     const store = useToDosStore()
+
+    function updateToDo(todo) {
+        if (!todo.completed) {
+            updatable.value = true
+            updatableValue.value = todo.todo
+        }
+    }
+
+    function editTodo(id, todo) {
+        store.editTodo(id, todo)
+        updatable.value = false
+    }
+
+    function closeUpdateTodo() {
+        updatable.value = false
+    }
 </script>
 
 <style scoped>
@@ -55,7 +88,7 @@
         gap: 1rem;
         font-size: 1em;
     }
-    .todo-card-content{
+    .todo-card-content {
         display: flex;
         justify-content: space-between;
         flex-basis: 100%;
@@ -85,5 +118,30 @@
     }
     .todo-card-update {
         background-color: oklch(90.5% 0.182 98.111);
+    }
+    .todo-card-edit {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .todo-card-edit-actions {
+        display: flex;
+        gap: 3px;
+        flex-basis: 40%;
+        justify-content: end;
+    }
+    .todo-card-edit-input {
+        flex-basis: 60%;
+    }
+
+    .todo-card-edit-actions > button:nth-child(1) {
+        background-color: oklch(85.2% 0.199 91.936);
+        width: 40%;
+    }
+
+    .todo-card-edit-actions > button:nth-child(2) {
+        background-color: oklch(81% 0.117 11.638);
+        flex-basis: 40%;
     }
 </style>

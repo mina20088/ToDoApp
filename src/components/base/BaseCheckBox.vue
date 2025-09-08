@@ -1,21 +1,19 @@
 <template>
-    <div class="checkbox"  :class="checkBox"></div>
+    <div class="checkbox" :class="checkBox"></div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
+    import { computed } from 'vue'
 
-const prop = defineProps({
-    checked: {
-        default: false
-    }
-});
+    const prop = defineProps({
+        checked: {
+            default: false,
+        },
+    })
 
-const checkBox = computed(()=> {
-    return prop.checked ? "checked" : ''
- })
-
-
+    const checkBox = computed(() => {
+        return prop.checked ? 'checked' : ''
+    })
 </script>
 
 <style scoped>

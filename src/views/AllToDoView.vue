@@ -1,8 +1,6 @@
 <template>
     <div class="todos-wrapper">
-
-        <todo-card v-for="todo in todos" :key="todo.id" :todo="todo"/>
-
+        <todo-card v-for="todo in todos" :key="todo.id" :todo="todo" />
     </div>
 </template>
 
@@ -16,8 +14,6 @@
     const store = useToDosStore()
 
     const { todos } = storeToRefs(store)
-
-
 </script>
 
 <style scoped>

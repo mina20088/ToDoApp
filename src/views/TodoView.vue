@@ -14,7 +14,7 @@
         </div>
         <todoStatisicsPanal />
         <div>
-            <ProgressBar :progress="30" />
+            <ProgressBar :progress="progress" />
         </div>
         <section>
             <RouterView />
@@ -28,6 +28,17 @@
     import todoCreate from '@/components/todo/todoCreate.vue'
     import todoStatisicsPanal from '@/components/todo/todoStatisicsPanal.vue'
     import ProgressBar from '@/components/ProgressBar.vue'
+    import useToDosStore from '@/stores/Todo'
+import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
+
+    const store = useToDosStore()
+
+    const {totalTasks, completedTasks} = storeToRefs(store)
+
+    const progress = computed(()=>{
+       return Math.round((completedTasks.value/totalTasks.value) * 100)
+    })
 </script>
 
 <style scoped>

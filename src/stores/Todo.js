@@ -1,14 +1,24 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 const useToDosStore = defineStore('todos', () => {
     let todos = ref([
-        { id: 1, todo: 'finish the course', completed: false,createdTime: 1694102400000 },
-        { id: 2, todo: 'Take Vue Course', completed: true, createdTime:1694102400000  },
-        { id: 3, todo: 'Unsubscribe from copilot', completed: false ,createdTime:1694102400000 },
+        { id: 1, todo: 'finish the course', completed: false, createdTime: 1694102400000 },
+        { id: 2, todo: 'Take Vue Course', completed: true, createdTime: 1694102400000 },
+        { id: 3, todo: 'Unsubscribe from copilot', completed: false, createdTime: 1694102400000 },
     ])
 
-    console.log(todos.value)
+    const totalTasks = computed(() => {
+        return todos.value.length
+    })
+
+    const completedTasks = computed(() => {
+        return todos.value.filter((t) => t.completed).length
+    })
+
+    const unCompleted = computed(() => {
+        return todos.value.filter((t) => !t.completed).length
+    })
 
     function addTodo(todo) {
         todos.value.unshift({
@@ -19,20 +29,29 @@ const useToDosStore = defineStore('todos', () => {
         })
     }
 
-    function changeTodoStatus(todo){
+    function changeTodoStatus(todo) {
         todo.completed = !todo.completed
     }
 
-    function deleteTodo(todo)
-    {
-        todos.value = todos.value.filter((t)=> t.id !== todo.id )
+    function editTodo(id, updatablevalue) {
+        const tod = todos.value.find((t) => t.id === id)
+        tod.todo = updatablevalue
+        tod.updated_at = Date.now()
+    }
+
+    function deleteTodo(todo) {
+        todos.value = todos.value.filter((t) => t.id !== todo.id)
     }
 
     return {
         todos,
+        totalTasks,
+        completedTasks,
+        unCompleted,
         addTodo,
+        editTodo,
         deleteTodo,
-        changeTodoStatus
+        changeTodoStatus,
     }
 })
 

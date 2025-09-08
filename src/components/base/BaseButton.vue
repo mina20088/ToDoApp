@@ -1,7 +1,7 @@
 <template>
     <button v-if="title">{{ props.title }}</button>
     <button v-else>
-        <slot/>
+        <slot />
     </button>
 </template>
 
