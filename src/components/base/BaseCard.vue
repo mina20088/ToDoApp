@@ -30,6 +30,7 @@
         .card {
             border-radius: 0;
             width: 100%;
+            height: 800px;
         }
         .card-header {
             border-radius: 0;

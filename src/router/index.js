@@ -14,14 +14,17 @@ const router = createRouter({
                 {
                     path: '/',
                     component: AllToDOView,
+                    props:true
                 },
                 {
                     path: 'active',
                     component: ActiveToDoView,
+                    props: true
                 },
                 {
                     path: 'completed',
                     component: CompletedToDoView,
+                    props:true
                 },
             ],
         },
