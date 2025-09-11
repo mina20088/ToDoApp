@@ -2,15 +2,15 @@
     <section class="card-statisice-panal">
         <div>
             <h2>{{ store.totalTasks }}</h2>
-            <p>Total Tasks</p>
+            <p>Total</p>
         </div>
         <div>
             <h2>{{ store.completedTasks }}</h2>
-            <p>Completed Tasks</p>
+            <p>Completed</p>
         </div>
         <div>
             <h2>{{ store.unCompleted }}</h2>
-            <p>Remainig Tasks</p>
+            <p>Remainig</p>
         </div>
     </section>
 </template>
@@ -43,5 +43,12 @@
         font-size: 1.5em;
         margin: 0;
         color: #00a6f4;
+    }
+
+    @media screen and (max-width:412px) {
+        .card-statisice-panal{
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
     }
 </style>

@@ -68,4 +68,13 @@
     button {
         background-image: linear-gradient(to right, #0075cd, #007cc8, #0081c2, #0086ba, #008ab1);
     }
+
+    @media screen and (max-width:412px){
+        .card-body-to-do-add-input-feild{
+            flex-basis: 70%;
+        }
+        .card-body-to-do-add-button{
+            flex-basis: 30%;
+        }
+    }
 </style>

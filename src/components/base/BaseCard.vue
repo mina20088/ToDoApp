@@ -17,6 +17,7 @@
         border-radius: 2rem;
         flex-direction: column;
         padding-bottom: 3rem;
+        height: 800px;
     }
 
     .card_body {
@@ -28,12 +29,20 @@
 
     @media screen and (max-width: 576px) {
         .card {
+            height: 65rem;
+        }
+    }
+
+    @media screen and (max-width: 575px) {
+        .card {
             border-radius: 0;
             width: 100%;
-            height: 800px;
+            height: 62rem;
         }
         .card-header {
             border-radius: 0;
         }
     }
+
+
 </style>

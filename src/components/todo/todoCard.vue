@@ -144,4 +144,10 @@
         background-color: oklch(81% 0.117 11.638);
         flex-basis: 40%;
     }
+
+    @media screen and (max-width:575px) {
+         .todo-card{
+            height: 80px;
+         }
+    }
 </style>

@@ -18,7 +18,7 @@
         </div>
         <section>
             <RouterView v-slot="{ Component }">
-                <transition name="fade">
+                <transition>
                     <component :is="Component" />
                 </transition>
             </RouterView>
@@ -66,5 +66,15 @@
     hr {
         border: none;
         border-top: 2px solid #3498db;
+    }
+
+    .v-enter-active{
+        animation: fadeIn 1s ease-out ;
+    }
+
+    @media screen and (max-width:412px){
+        .router-link-exact-active{
+            flex-basis: 33.3%;
+        }
     }
 </style>

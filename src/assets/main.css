@@ -16,6 +16,9 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    height: 100vh;
+    padding: 2rem;
 }
 
 p {
@@ -35,13 +38,13 @@ p {
     gap: 3px;
 }
 
-  .pagination-container {
+.pagination-container {
     display: flex;
 
     column-gap: 10px;
-  }
+}
 
-  .paginate-buttons {
+.paginate-buttons {
     height: 40px;
 
     width: 40px;
@@ -55,34 +58,32 @@ p {
     border: 1px solid rgb(217, 217, 217);
 
     color: black;
-  }
+}
 
-  .paginate-buttons:hover {
+.paginate-buttons:hover {
     background-color: #d8d8d8;
-  }
+}
 
-  .active-page {
+.active-page {
     background-color: #3498db;
 
     border: 1px solid #3498db;
 
     color: white;
-  }
-
-  .active-page:hover {
-    background-color: #2988c8;
-  }
-
-@media screen and (min-width: 360px) {
-    main {
-        padding: 2rem;
-        height: auto;
-    }
 }
 
-@media screen and (min-width: 768px) {
+.active-page:hover {
+    background-color: #2988c8;
+}
+
+/* @media screen and (max-width: 768px) {
     main {
         padding: 0;
-        height: 100vh;
     }
 }
+
+@media screen and (max-width: 576px) {
+    main {
+        padding: 2rem;
+    }
+} */
