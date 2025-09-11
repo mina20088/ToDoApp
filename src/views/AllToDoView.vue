@@ -1,7 +1,9 @@
 <template>
     <div class="todos-wrapper">
-        <transition-group  name="all" mode="out-in">
-            <todo-card v-for="todo in paginatedTodos" :key="todo.id" :todo="todo" />
+        <transition-group name="all">
+            <template v-for="todo in paginatedTodos" :key="todo.id">
+                <todo-card v-if="todo" :todo="todo" />
+            </template>
         </transition-group>
 
         <!-- Pagination Component -->
@@ -30,6 +32,8 @@
     const currentPage = ref(1)
     const itemsPerPage = ref(3) // Show 5 todos per page
 
+    const isTransitioning = ref(false)
+
     // Computed properties for pagination
     const totalPages = computed(() => {
         return Math.ceil(todos.value.length / itemsPerPage.value)
@@ -43,6 +47,7 @@
 
     // Handle page change
     const onPageChange = (page) => {
+        isTransitioning.value = true
         currentPage.value = page
     }
 
@@ -55,10 +60,10 @@
 </script>
 
 <style scoped>
-.all-enter-active{
-     animation: fadeInLeft 0.6s ease-out;
-}
-.all-leave-active{
-    animation: fadeOutRight 0.6s ease-out forwards;
-}
+    .all-enter-active {
+        animation: fadeInLeft 0.6s ease-out;
+    }
+    .all-leave-active {
+        animation: fadeOutRight 0.6s ease-out forwards;
+    }
 </style>

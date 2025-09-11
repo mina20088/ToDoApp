@@ -1,5 +1,5 @@
 <template>
-    <div class="todo-card" :style="cardBorderStyle(todo)">
+    <div v-if="!updatable" class="todo-card" :style="cardBorderStyle(todo)">
         <base-check-box @click="store.changeTodoStatus(todo)" :checked="todo.completed" />
         <div class="todo-card-content">
             <div v-if="!updatable" class="todo-card-text">
@@ -145,9 +145,9 @@
         flex-basis: 40%;
     }
 
-    @media screen and (max-width:575px) {
-         .todo-card{
+    @media screen and (max-width: 575px) {
+        .todo-card {
             height: 80px;
-         }
+        }
     }
 </style>
